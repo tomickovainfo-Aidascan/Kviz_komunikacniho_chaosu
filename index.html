@@ -516,7 +516,7 @@ function poslatEmail(){
     odpovedi: JSON.stringify(odpovedi, (k,v)=> v instanceof Set ? Array.from(v) : v),
   };
 
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/NAHRADIT_ZA_VLASTNI_URL/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDEuQAqrk19EVl_Ak9v9cuTNnoApbsGsEYiwBk9-0LKGUbkc4E2BmQWbO4akQ9JjBa5g/exec';
   fetch(APPS_SCRIPT_URL, {
     method:'POST',
     headers:{'Content-Type':'text/plain;charset=utf-8'},
