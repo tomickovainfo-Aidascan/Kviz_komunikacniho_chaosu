@@ -525,6 +525,7 @@ function poslatEmail(){
     status.textContent = 'Hotovo, podrobný výsledek vám přijde na email během chvilky.';
     status.className = 'email-status ok';
     btn.textContent = 'Odesláno';
+    if(typeof fbq === 'function') fbq('track', 'Lead');
   }).catch(()=>{
     status.textContent = 'Něco se nepovedlo. Zkuste to znovu nebo napište na tomickova.info@gmail.com.';
     status.className = 'email-status err';
@@ -562,10 +563,20 @@ function spustitGA() {
   gtag('js', new Date());
   gtag('config', 'G-JBFDH4G4VP');
 }
+function spustitPixel() {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1562360565487039');
+  fbq('track', 'PageView');
+}
 function cookiesSouhlasit() {
   localStorage.setItem('cookies_souhlas', 'ano');
   document.getElementById('cookies-bar').style.display = 'none';
   spustitGA();
+  spustitPixel();
 }
 function cookiesOdmitnout() {
   localStorage.setItem('cookies_souhlas', 'ne');
