@@ -1,0 +1,1 @@
+# Kviz_komunikacniho_chaosu
